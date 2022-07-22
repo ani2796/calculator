@@ -1,3 +1,15 @@
 /*
     CSS styles for calculator
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+.content {
+    background-color: #ADE8F4;
+    color: #03045E;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.heading {
+    text-align: center;
+}
