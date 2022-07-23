@@ -14,3 +14,11 @@
 .heading {
     text-align: center;
 }
+
+.calc-input {
+    caret-color: transparent;
+}
+
+.calc-input:focus {
+    outline: none;
+}
