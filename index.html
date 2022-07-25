@@ -8,25 +8,41 @@
     </head>
     <body class="content">
         <h1 class="heading">Calculator</h1>
-        <button class="calc-button num" data-button="1">1</button>
-        <button class="calc-button num" data-button="2">2</button>
-        <button class="calc-button num" data-button="3">3</button>
-        <button class="calc-button num" data-button="4">4</button>
-        <button class="calc-button num" data-button="5">5</button>
-        <button class="calc-button num" data-button="6">6</button>
-        <button class="calc-button num" data-button="7">7</button>
-        <button class="calc-button num" data-button="8">8</button>
-        <button class="calc-button num" data-button="9">9</button>
-        <button class="calc-button num" data-button="0">0</button>
-        <button class="calc-button float">.</button>
-        <button class="calc-button op">+</button>
-        <button class="calc-button op">-</button>
-        <button class="calc-button op">x</button>
-        <button class="calc-button op">/</button>
-        <button class="calc-button eq">=</button>
-        <button class="calc-button clear">CLEAR</button>
-        <button class="calc-button delete">DELETE</button>
-        <input class="calc-input-buffer">
-        <input class="calc-input-main">
+        <div class="calc-body">
+            <div class="calc-row">
+                <input class="calc-input-buffer">
+            </div>
+            <div class="calc-row">
+                <input class="calc-input-main">
+            </div>
+            <div class="calc-row">
+                <button class="calc-button clear">CLEAR</button>
+                <button class="calc-button delete">DELETE</button>
+            </div>
+            <div class="calc-row">
+                <button class="calc-button num" data-button="7">7</button>
+                <button class="calc-button num" data-button="8">8</button>
+                <button class="calc-button num" data-button="9">9</button>
+                <button class="calc-button op">/</button>
+            </div>
+            <div class="calc-row">
+                <button class="calc-button num" data-button="4">4</button>
+                <button class="calc-button num" data-button="5">5</button>
+                <button class="calc-button num" data-button="6">6</button>
+                <button class="calc-button op">x</button>
+            </div>  
+            <div class="calc-row">
+                <button class="calc-button num" data-button="1">1</button>
+                <button class="calc-button num" data-button="2">2</button>
+                <button class="calc-button num" data-button="3">3</button>
+                <button class="calc-button op">-</button>                
+            </div>
+            <div class="calc-row">
+                <button class="calc-button float">.</button>
+                <button class="calc-button num" data-button="0">0</button>
+                <button class="calc-button eq">=</button>
+                <button class="calc-button op">+</button> 
+            </div>
+        </div>               
     </body>
 </html>

@@ -9,6 +9,10 @@
     background-color: #ADE8F4;
     color: #03045E;
     font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .heading {
@@ -21,4 +25,44 @@
 
 .calc-input:focus {
     outline: none;
+}
+
+.display-box input {
+    text-align: center;
+
+}
+
+.calc-body {
+    height: 70vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.calc-row {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.calc-button {
+    flex: 1;
+    font-size: large;
+}
+
+.calc-input-main {
+    font-size: xx-large;
+}
+
+.calc-input-buffer {
+    font-size: large;
+}
+
+.calc-input-buffer,
+.calc-input-main {
+    flex: 1;
+    text-align: right;
+    padding: 20px;
 }

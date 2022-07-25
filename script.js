@@ -54,8 +54,8 @@ function performOperation() {
                             // Handle divide by 0 error
                         }
                         break;
-        
     }
+    state.op1 = Math.round(state.op1 * 1000000)/1000000;
 }
 
 // Function to update the display based on the current state
@@ -73,7 +73,10 @@ const numberButtons = [...document.querySelectorAll('.calc-button.num')];
 numberButtons.forEach( button => {
         button.addEventListener('click', e => {
             console.log("e.target.textContent: " + e.target.textContent);
-            state.mainDisplay = "" + +(state.mainDisplay + e.target.textContent);
+            if(state.startFloat && e.target.textContent === "0")
+                state.mainDisplay += "0";
+            else
+                state.mainDisplay = "" + +(state.mainDisplay + e.target.textContent);
             console.log("state.mainDisplay: " + state.mainDisplay);
             console.log("state.bufferDisplay: " + state.bufferDisplay);
             refreshMainDisplay();
@@ -116,6 +119,10 @@ equalButton.addEventListener('click', (e) => {
     state.op2 = undefined;
     refreshMainDisplay();
     state.opChainStart = false;
+    console.log("state.mainDisplay: " + state.mainDisplay);
+    console.log("(\"\" + state.mainDisplay).search(con.FLOAT): " + ("" + state.mainDisplay).search(con.FLOAT));
+    if(("" + state.mainDisplay).search(con.FLOAT) !== -1)
+        state.startFloat = true;
 })
 
 const floatButton = document.querySelector('.calc-button.float');
@@ -131,11 +138,27 @@ floatButton.addEventListener('click', (e) => {
 const clearButton = document.querySelector('.calc-button.clear');
 clearButton.addEventListener('click', (e) => {
     console.log(e.target.textContent);
+    state.mainDisplay = "0";
+    refreshMainDisplay();
+    state.bufferDisplay = ""
+    refreshBufferDisplay();
+    state.op1 = state.op2 = undefined;
+    state.operator = "";
+    state.startFloat = false;
+    state.opChainStart = false;
+
 })
 
 const deleteButton = document.querySelector('.calc-button.delete');
 deleteButton.addEventListener('click', (e) => {
     console.log(e.target.textContent);
+    //console.log(mainDisplay.value.slice(0, -1));
+    const lastChar = mainDisplay.value.slice(-1);
+    console.log("lastChar: " + lastChar);
+    if(lastChar === con.FLOAT)
+        state.startFloat = false;
+    state.mainDisplay = mainDisplay.value.slice(0, -1);
+    refreshMainDisplay();
 })
 
 // Initial Refresh
